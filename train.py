@@ -29,7 +29,7 @@ parser.add_argument('--agent', type=str, default='A2C', help='A2C')
 parser.add_argument("--result_name", type=str, default="results.csv", help="filename where results are stored")
 
 # model settings
-parser.add_argument('--input_dim', type=int, default=16, help='input dim')
+parser.add_argument('--input_dim', type=int, default=19, help='input dim')
 parser.add_argument('--hidden_dim', type=int, default=128, help='hidden dim')
 parser.add_argument('--ngcn', type=int, default=0, help='number of gcn')
 parser.add_argument('--nmlp', type=int, default=1, help='number of mlp to compute probs')
@@ -65,14 +65,14 @@ while (not done):
     _, _, done, _ = env.step(0)
 exit()
 
-model = ModelHeterogene(input_dim=args.input_dim,
-                        hidden_dim=args.hidden_dim,
-                        ngcn=args.ngcn,
-                        nmlp=args.nmlp,
-                        nmlp_value=args.nmlp_value,
-                        res=args.res,
-                        withbn=args.withbn)
-
-agent = A2C(config_enhanced, env, model=model, writer=writer)
-
-best_perf, _ = agent.training_batch()
+# model = ModelHeterogene(input_dim=args.input_dim,
+#                         hidden_dim=args.hidden_dim,
+#                         ngcn=args.ngcn,
+#                         nmlp=args.nmlp,
+#                         nmlp_value=args.nmlp_value,
+#                         res=args.res,
+#                         withbn=args.withbn)
+#
+# agent = A2C(config_enhanced, env, model=model, writer=writer)
+#
+# best_perf, _ = agent.training_batch()
